@@ -1,0 +1,300 @@
+﻿<Page x:Class="Kursovaya.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Title="MainPage"
+      x:Name="MPage">
+
+    <Grid>
+        <ScrollViewer>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <Border>
+                    <Grid Background="#f7f7f7">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" Grid.Row="0">
+                            <DockPanel  VerticalAlignment="Center" HorizontalAlignment="Center" >
+                                    <TextBlock Text="Город: " Width="50" FontSize="15"  VerticalAlignment="Center" DockPanel.Dock="Left"/>
+                                    <TextBox Text="{Binding FlatFilter.Address.Sity,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" DockPanel.Dock="Left"
+                                             FontSize="15"
+                                             Height="25"
+                                             Padding="1"
+                                             x:Name="SityBox"
+                                             Width="150"/>
+                            </DockPanel>
+                        </Border>
+                        <Border Grid.Column="1" Grid.Row="0">
+                            <DockPanel Margin="0 10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="Район: " DockPanel.Dock="Left" Width="50" FontSize="15" VerticalAlignment="Center"/>
+                                <TextBox Width="150"
+                                         FontSize="15" Height="25"
+                                         Padding="1"
+                                         x:Name="DistrictBox" DockPanel.Dock="Left"
+                                 Text="{Binding FlatFilter.Address.District,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                            </DockPanel>
+                        </Border>
+                        <Border Grid.Column="2" Grid.Row="0">
+                            <DockPanel Margin="0 10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="Улица: " Width="90" FontSize="15" VerticalAlignment="Center"/>
+                                <TextBox x:Name="StreetBox"  
+                                         Width="150" FontSize="15"
+                                         Height="25" Padding="1"
+                                         Text="{Binding FlatFilter.Address.Street,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                            </DockPanel>
+                        </Border>
+
+                        <Border Grid.Column="0" Grid.Row="1">
+                            <DockPanel Margin="0 10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="Метро: " FontSize="15" Width="50" VerticalAlignment="Center"/>
+                                <TextBox Width="150"
+                                         FontSize="15"
+                                         x:Name="MetroBox"
+                                         Height="25"
+                                         Padding="1"
+                                         Text="{Binding FlatFilter.Address.Metro,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                            </DockPanel>
+                        </Border>
+
+                        <Border Grid.Column="1" Grid.Row="1">
+                            <DockPanel Margin="0 10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="Количество комнат: " 
+                                           FontSize="15" Width="145" Margin="0,0,0,0"
+                                           VerticalAlignment="Center"/>
+                                <ComboBox Height="25"
+                                          x:Name="CountRoomsBox"
+                                          Width="50"
+                                          Margin="5 0 0 0"
+                                          FontSize="15"
+                                          Text="{Binding FlatFilter.CountRooms,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}">
+                                    <ComboBoxItem >1</ComboBoxItem>
+                                    <ComboBoxItem>2</ComboBoxItem>
+                                    <ComboBoxItem>3</ComboBoxItem>
+                                    <ComboBoxItem>4</ComboBoxItem>
+                                    <ComboBoxItem>5</ComboBoxItem>
+                                </ComboBox>
+                            </DockPanel>
+                        </Border>
+
+                        <Border Grid.Column="2" Grid.Row="1">
+                            <DockPanel Margin="0 10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="Этаж: " Width="70" FontSize="15" VerticalAlignment="Center"/>
+                                <TextBlock Text="от:" FontSize="15" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                <TextBox Width="50" Height="25"
+                                         FontSize="15"
+                                         x:Name="FloorMin"
+                                         Text="{Binding FlatFilter.Address.FloorMin,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                                <TextBlock Text="до:" VerticalAlignment="Center" FontSize="15" Margin="10,0"/>
+                                <TextBox Width="50" FontSize="15"
+                                         x:Name="FloorMax" Height="25"
+                                         Text="{Binding FlatFilter.Address.FloorMax,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                            </DockPanel>
+                        </Border>
+
+                        <Border Grid.Column="0" Grid.Row="2">
+                            <DockPanel Margin="0 10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="Площадь: " Width="90" FontSize="15" VerticalAlignment="Center"/>
+                                <TextBlock Text="от:" FontSize="15" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                <TextBox FontSize="15"
+                                         Width="50" Height="25"
+                                         x:Name="AreaMin"
+                                         Text="{Binding FlatFilter.AreaMin,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay,StringFormat={}{F?}}"/>
+                                <TextBlock Text="до:" VerticalAlignment="Center" FontSize="15" Margin="10,0"/>
+                                <TextBox FontSize="15" Height="25"
+                                         Width="50"
+                                         x:Name="AreaMax"
+                                         Text="{Binding FlatFilter.AreaMax,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                            </DockPanel>
+                        </Border>
+                        <Border Grid.Column="1" Grid.Row="2">
+                            <DockPanel Margin="0 10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="Ремонт: " Width="80" FontSize="15" VerticalAlignment="Center"/>
+                                <ComboBox FontSize="15"
+                                          Width="120"
+                                          Padding="2" Height="25"
+                                          x:Name="RepairBox"
+                                          Text="{Binding FlatFilter.Repair,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}">
+                                    <ComboBoxItem>Косметический</ComboBoxItem>
+                                    <ComboBoxItem>Капитальный</ComboBoxItem>
+                                    <ComboBoxItem>Евроремонт</ComboBoxItem>
+                                    <ComboBoxItem>Дизайнерский</ComboBoxItem>
+                                </ComboBox>
+                            </DockPanel>
+                        </Border>
+                        <Border Grid.Column="2" Grid.Row="2">
+                            <DockPanel Margin="0 10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="Цена: " Width="70" FontSize="15" VerticalAlignment="Center"/>
+                                <TextBlock Text="от:" FontSize="15" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                <TextBox FontSize="15"
+                                         x:Name="PriceMin" Height="25"
+                                         Width="50"
+                                         Text="{Binding FlatFilter.PriceMin,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                                <TextBlock Text="до:" VerticalAlignment="Center" FontSize="15" Margin="10,0"/>
+                                <TextBox FontSize="15" Height="25"
+                                         Width="50"
+                                         x:Name="PriceMax"
+                                 Text="{Binding FlatFilter.PriceMax,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                            </DockPanel>
+                        </Border>
+
+                        <Border Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3">
+                            <DockPanel HorizontalAlignment="Center" Margin="20 20 0 0">
+                                <CheckBox x:Name="CheckBoxFilter" 
+                                          Content="Наличие бытовых предметов" 
+                                          FontSize="15"
+                                          HorizontalAlignment="Center"/>
+                            </DockPanel>
+                        </Border>
+
+                        <Border Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" x:Name="BorderCheck" Style="{StaticResource BorderCheck}">
+                            <DockPanel HorizontalAlignment="Center">
+                                <CheckBox Content="Водонагреватель"
+                                          x:Name="WaterHeaterCheck"
+                                          FontSize="15"
+                                          Margin="10,0"
+                                          IsChecked="{Binding FlatFilter.Demands.WaterHeater,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                                <CheckBox Content="Стиральная машина"
+                              x:Name="WasherCheck"
+                              FontSize="15"
+                              Margin="10,0"
+                              IsChecked="{Binding FlatFilter.Demands.Washer,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                                <CheckBox Content="Микроволнова печь"
+                              FontSize="15"
+                              Margin="10,0"
+                              x:Name="MicrowaveCheck"
+                              IsChecked="{Binding FlatFilter.Demands.Microwave,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                                <CheckBox Content="Холодильник"
+                              x:Name="RefregicatorCheck"
+                              FontSize="15"
+                              Margin="10,0"
+                              IsChecked="{Binding FlatFilter.Demands.Refrigicator,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                                <CheckBox Content="Интернет"
+                              x:Name="InternetCheck"
+                              FontSize="15"
+                              Margin="10,0"
+                              IsChecked="{Binding NewFlat.Demands.Internet,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                                <CheckBox Content="Телевизор"
+                              x:Name="TVCheck"
+                              FontSize="15"
+                              Margin="10,0"
+                              IsChecked="{Binding FlatFilter.Demands.TV,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                            </DockPanel>
+                        </Border>
+                        <Border Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" HorizontalAlignment="Right" Margin="0 10 0 10">
+                            <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Button Content="Сбросить" 
+                                        Margin="-20 0 "
+                                        Style="{DynamicResource ButtonSendFlat}"
+                                        Command="{Binding ResetFilter}"
+                                        CommandParameter="{Binding ElementName=MPage}"
+                                        Cursor="Hand"/>
+                                <Button Content="Отфильтровать" 
+                                        Style="{DynamicResource ButtonSendFlat}"
+                                        Command="{Binding ApplyFilter}"
+                                        CommandParameter="{Binding ElementName=MPage}"
+                                        Cursor="Hand"/>
+                            </DockPanel>
+                        </Border>
+
+                    </Grid>
+
+                </Border>
+               
+                <Border Grid.Row="1">
+                    <DockPanel HorizontalAlignment="Center">
+                    <Button Content="Сортировка по дате" 
+                            Style="{DynamicResource ButtonSendFlat}"
+                            Command="{Binding SortByTimeAdd}"
+                            Margin="0,10,20,0"
+                            Cursor="Hand"/>
+                    <Button Content="Показать новые объявления" 
+                            Style="{DynamicResource ButtonMainPage}" 
+                            VerticalAlignment="Center"
+                            Margin="0,10,0,0"
+                            Width="400"
+                            Command="{Binding UpdateList}"
+                            Cursor="Hand"/>
+                    <Button Content="Сортировка по цене"
+                            Margin="20,10,0,0"
+                            Style="{DynamicResource ButtonSendFlat}"
+                            Command="{Binding SortByPrice}"
+                            Cursor="Hand"/>
+                    </DockPanel>
+                </Border>
+                <!--Список квартир-->
+                <Border Grid.Row="2" HorizontalAlignment="Center" UseLayoutRounding="True">
+                    <ItemsControl ItemsSource="{Binding Flats}" >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border 
+                                    Padding="10"
+                                    Margin="20"   
+                                    Width="260"
+                                    Background="#F7F7F7"
+                                    UseLayoutRounding="True"
+                                    CornerRadius="5">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="1" Color="#FFBBBBBB" Direction="0" RenderingBias="Quality" BlurRadius="15" />
+                                    </Border.Effect>
+
+                                    <StackPanel Margin="5">
+                                        <Image Source="{Binding Image}"
+                                               Stretch="Fill"
+                                               HorizontalAlignment="Center"
+                                               MaxHeight="150"/>
+
+                                        <Border CornerRadius="0 5 0 0" Background="Black" Opacity="0.35" Margin="0,-20,0,0" Width="105" Height="20" HorizontalAlignment="Left"/>
+
+
+                                        <DockPanel Margin="10,-20,0,0">
+                                            <TextBlock Text="{Binding Price}" VerticalAlignment="Center" Foreground="White" FontSize="14"/>
+                                            <TextBlock Text="$\мес." Foreground="White"/>
+                                        </DockPanel>
+                                        <DockPanel Margin="5">
+                                                <TextBlock Text="{Binding Address.Sity}" VerticalAlignment="Center"/>
+                                                <TextBlock Text=", " VerticalAlignment="Center"/>
+                                                <TextBlock Text="{Binding Address.Street}" VerticalAlignment="Center"/>
+                                                <TextBlock Text=", " VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding Address.NumberHouse}" VerticalAlignment="Center"/>
+                                        </DockPanel>
+                                        <Grid>
+                                            <Button Content="Подробнее"
+                                                    Command="{Binding DataContext.OpenDetails,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Page}}"
+                                                    CommandParameter="{Binding}"
+                                                    Height="30"
+                                                    BorderBrush="White"
+                                                    Margin="0,5"/>
+                                        </Grid>
+                                    </StackPanel>
+
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

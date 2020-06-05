@@ -1,0 +1,27 @@
+﻿<Page x:Class="Kursovaya.Pages.Autorization"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:w ="clr-namespace:Kursovaya.Helper"
+      Title="Autorization">
+    <Grid>
+        <TextBlock Text="Авторизация" FontSize="18" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <StackPanel VerticalAlignment="Center">
+            <Label Content="Электронная почта" 
+                   Style="{StaticResource AutorizationLabel}"/>
+            <TextBox Text="{Binding User.Mail,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                     Style="{StaticResource AutorizationTextBox}"
+                     x:Name="MailBox"/>
+            <Label Content="Пароль" Style="{StaticResource AutorizationLabel}"/>
+            <PasswordBox x:Name="PassAutorization" 
+                         Style="{StaticResource AutorizationPasswordBox}"
+                         w:PasswordHelper.Password="{Binding User.Password, Mode=TwoWay}"/>
+            <Button Content="Войти" x:Name="LoginButton"
+                    Style="{DynamicResource AutorizationButton}" 
+                    Opacity="{Binding OpacityButtonAutorization,UpdateSourceTrigger=PropertyChanged}"
+                    Command="{Binding Autorization}"/>
+            <Button Content="Вы ещё не зарегистрировались?" 
+                    Style="{DynamicResource OpenRegistration}" 
+                    Command="{Binding NavigateRegistration}"/>
+        </StackPanel>
+    </Grid>
+</Page>

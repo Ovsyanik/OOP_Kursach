@@ -1,0 +1,145 @@
+﻿<Page x:Class="Kursovaya.Pages.PageFlat"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      Title="PageFlat">
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel >
+                <StackPanel Margin="5">
+                    <DockPanel Width="900">
+                    <DockPanel DockPanel.Dock="Left" Margin="0,0,27,0">
+                        <Image Source="{Binding CurrentFlat.Image}"
+                               HorizontalAlignment="Center"
+                               MaxHeight="250"
+                               MaxWidth="300"
+                               Margin="20"/>
+                        <DockPanel Margin="10,5" DockPanel.Dock="Right">
+                            <TextBlock Text="{Binding CurrentFlat.Description}" TextWrapping="Wrap" Margin="0 20 0 10" />
+                        </DockPanel>
+                    </DockPanel>
+                    </DockPanel>
+                    <StackPanel HorizontalAlignment="Center" Width="900">
+                        
+                        <TextBlock Text="Описание" HorizontalAlignment="Center" FontWeight="Bold" FontSize="17" Margin="0,20,20,10"/>
+                        <DockPanel HorizontalAlignment="Center" Width="900">
+                            <DockPanel DockPanel.Dock="Left" Margin="30 0 0 0">
+                                <DockPanel DockPanel.Dock="Top" Margin="0 8">
+                                    <TextBlock Text="Количество комнат .................................................." 
+                                           FontSize="15" Width="300"  VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding CurrentFlat.CountRooms}" VerticalAlignment="Center" Margin="0" FontSize="15"/>
+                                </DockPanel>
+                                <DockPanel Margin="0 8" DockPanel.Dock="Top">
+                                    <TextBlock Text="Площадь ........................................................................................"
+                                           VerticalAlignment="Center" Width="300"   
+                                           FontSize="15"/>
+                                    <TextBlock Text="{Binding CurrentFlat.Area}" VerticalAlignment="Center" FontSize="15"/>
+                                    <TextBlock Text="кв. м" FontSize="15" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                                </DockPanel>
+                                <DockPanel Margin="0 8" DockPanel.Dock="Top">
+                                    <TextBlock Text="Ремонт ........................................................................... "
+                                           VerticalAlignment="Center" Width="300" FontSize="15"/>
+                                    <TextBlock Text="{Binding CurrentFlat.Repair}" VerticalAlignment="Center" FontSize="15"/>
+                                </DockPanel>
+                                <DockPanel Margin="0 8" DockPanel.Dock="Top">
+                                    <TextBlock Text="Цена ....................................................................................." 
+                                           FontSize="15"
+                                           VerticalAlignment="Center" Width="300"/>
+                                    <TextBlock Text="{Binding CurrentFlat.Price}" 
+                                           FontSize="15"
+                                           VerticalAlignment="Center" />
+                                    <TextBlock Text="$\мес." FontSize="15" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                                </DockPanel>
+                                <DockPanel Margin="0 8" DockPanel.Dock="Top">
+                                    <TextBlock Text="Город ...................................................................................." FontSize="15" VerticalAlignment="Center" Width="300"/>
+                                    <TextBlock Text="{Binding CurrentFlat.Address.Sity}" VerticalAlignment="Center"/>
+                                </DockPanel>
+                            </DockPanel>
+                            <DockPanel DockPanel.Dock="Right">
+                                <DockPanel Margin="10 8" DockPanel.Dock="Top">
+                                    <TextBlock Text="Район .................................................................................."  VerticalAlignment="Center"
+                                           Width="270" FontSize="15"/>
+                                    <TextBlock Text="{Binding CurrentFlat.Address.District}" VerticalAlignment="Center" FontSize="15"/>
+                                </DockPanel>
+                                <DockPanel Margin="10 8" DockPanel.Dock="Top">
+                                    <TextBlock Text="Улица .................................................................................." VerticalAlignment="Center" Width="270" FontSize="15"/>
+                                    <TextBlock Text="{Binding CurrentFlat.Address.Street}"
+                                           VerticalAlignment="Center" FontSize="15"/>
+                                </DockPanel>
+                                <DockPanel Margin="10,8" DockPanel.Dock="Top">
+                                    <TextBlock Text="Номер дома ............................................................................." VerticalAlignment="Center" Width="270" FontSize="15"/>
+                                    <TextBlock Text="{Binding CurrentFlat.Address.NumberHouse}" VerticalAlignment="Center" FontSize="15"/>
+                                </DockPanel>
+                                <DockPanel Margin="10 8" DockPanel.Dock="Top">
+                                    <TextBlock Text="Этаж ..................................................................................." VerticalAlignment="Center" Width="270" FontSize="15"/>
+                                    <TextBlock Text="{Binding CurrentFlat.Address.Floor}" VerticalAlignment="Center" FontSize="15"/>
+                                </DockPanel>
+                                <DockPanel Margin="10 8" DockPanel.Dock="Top" >
+                                    <TextBlock Text="Метро ............................................................................ " 
+                                           VerticalAlignment="Center" Width="270" FontSize="15"/>
+                                    <TextBlock Text="{Binding CurrentFlat.Address.Metro}" VerticalAlignment="Center" FontSize="15"/>
+                                </DockPanel>
+                            </DockPanel>
+                        </DockPanel>
+                        <TextBlock Text="Удобства" FontSize="17" FontWeight="Bold" Margin="0 20 20 10" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <DockPanel HorizontalAlignment="Center" Width="900">
+                            <DockPanel DockPanel.Dock="Left" Margin="30 0 0 0" Width="450">
+                                <DockPanel Margin="0,8" DockPanel.Dock="Top">
+                                    <TextBlock Text="Водонагреватель ....................................................................... " FontSize="15" Width="300"/>
+                                    <TextBlock Text="{Binding CurrentFlat.Demands.WaterHeaterText}" VerticalAlignment="Center" FontSize="15"/>
+                                </DockPanel>
+                                <DockPanel Margin="0,8" DockPanel.Dock="Top">
+                                    <TextBlock Text="Стиральная машина ..................................................................... " FontSize="15" Width="300"/>
+                                    <TextBlock Text="{Binding CurrentFlat.Demands.WasherText}" VerticalAlignment="Center" FontSize="15"/>
+                                </DockPanel>
+                                <DockPanel Margin="0,8" DockPanel.Dock="Top">
+                                    <TextBlock Text="Микроволновая печь .................................................................... " FontSize="15" Width="300"/>
+                                    <TextBlock Text="{Binding CurrentFlat.Demands.MicrowaveText}" VerticalAlignment="Center" FontSize="15"/>
+                                </DockPanel>
+
+                            </DockPanel>
+                            <DockPanel DockPanel.Dock="Right" Margin="30 0" Width="450">
+                                <DockPanel Margin="0 8" DockPanel.Dock="Top">
+                                    <TextBlock Text="Холодильник ............................................................................ " FontSize="15" Width="270"/>
+                                    <TextBlock Text="{Binding CurrentFlat.Demands.RefrigicatorText}" VerticalAlignment="Center" FontSize="15"/>
+                                </DockPanel>
+                                <DockPanel Margin="0,8" DockPanel.Dock="Top">
+                                    <TextBlock Text="Интернет .............................................................................. " FontSize="15" Width="270"/>
+                                    <TextBlock Text="{Binding CurrentFlat.Demands.InternetText}" VerticalAlignment="Center" FontSize="15"/>
+                                </DockPanel>
+                                <DockPanel Margin="0,8" DockPanel.Dock="Top">
+                                    <TextBlock Text="Телевизор ............................................................................. " FontSize="15" Width="270"/>
+                                    <TextBlock Text="{Binding CurrentFlat.Demands.TVText}" VerticalAlignment="Center" FontSize="15"/>
+                                </DockPanel>
+                            </DockPanel>
+                        </DockPanel>
+                    </StackPanel>
+
+
+                    <Border BorderThickness="1" BorderBrush="Gray" HorizontalAlignment="Center" Width="300" Margin="0 20 0 10">
+                        <StackPanel>
+                            <DockPanel HorizontalAlignment="Center">
+                                <TextBlock Text="{Binding CurrentFlat.User.LastName}" VerticalAlignment="Center" FontSize="15"/>
+                                <TextBlock Text=" "/>
+                                <TextBlock Text="{Binding CurrentFlat.User.FirstName}" VerticalAlignment="Center" FontSize="15"/>
+                            </DockPanel>
+                            <TextBlock Text="{Binding CurrentFlat.User.Mail}" Margin="30 0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                            <DockPanel Margin="10,8" HorizontalAlignment="Center">
+                                <TextBlock Text="+375" FontSize="15"/>
+                                <TextBlock Text="{Binding CurrentFlat.User.NumberPhone}" VerticalAlignment="Center" FontSize="15"/>
+                            </DockPanel>
+                        </StackPanel>
+                    </Border>
+                    <DockPanel HorizontalAlignment="Right" Margin="20,10">
+                        <TextBlock Text="Время добавления: " FontSize="15"/>
+                        <TextBlock Text="{Binding CurrentFlat.TimeAdd, StringFormat={}{0:s}}" VerticalAlignment="Center" FontSize="15" />
+                    </DockPanel>
+
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
